@@ -1,0 +1,36 @@
+/* Flashcard component container */
+.flashcard-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Close button */
+.flashcard-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Content inside the flashcard */
+.flashcard-content {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.flashcard-header {
+    font-size: 16px;
+}
+
+.flashcard-body {
+    font-size: 12px;
+}

@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React, { useState } from "react";
+import { WidthProvider } from "./TopicWidthContext";
+import TopicComponent from "./TopicComponent";
+import Flashcard from "./Flashcard";
+import "./App.css"; // Import the CSS file for styling
 
 function App() {
+  const [showFlashcard, setShowFlashcard] = useState(false);
+  const [flashcardTitle, setFlashcardTitle] = useState("");
+  const [flashcardText, setFlashcardText] = useState("");
+
+  const handleFlashcardToggle = (title, text) => {
+    setFlashcardTitle(title);
+    setFlashcardText(text);
+    setShowFlashcard(!showFlashcard);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <WidthProvider>
+      <div className="App">
+        <header className="App-header">
+          <p className="title">Title</p>
+          <TopicComponent onFlashcardToggle={handleFlashcardToggle} />
+          {showFlashcard && (
+            <Flashcard title={flashcardTitle} text={flashcardText} />
+          )}
+        </header>
+        <main>
+          <Flashcard trigger={false}>
+
+          </Flashcard>
+        </main>
+      </div>
+    </WidthProvider>
   );
 }
 
